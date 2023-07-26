@@ -27,7 +27,7 @@ class AuthorDeleteView(PermissionRequiredMixin, generic.DeleteView):
         return context 
 
 class AuthorCreateView(generic.CreateView):
-    model=models.Type
+    model=models.Author
     form_class=forms.AuthorModelForm
     template_name="catalog/add-author.html"
     success_url=reverse_lazy("catalog:success-page")
