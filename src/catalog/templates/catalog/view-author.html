@@ -16,10 +16,10 @@
             
             <td> {{book.name}}</td>
 
-            <td> <a href='{% url "catalog:view-book" pk=type.pk %}'> Просмотреть </a>
+            <td> <a href='{% url "catalog:view-book" pk=book.pk %}'> Просмотреть </a>
                 {% if user.is_superuser %}
-                <a href='{% url "catalog:update-book" pk=type.pk %}'> Обновить информацию </a>
-                <a href='{% url "catalog:delete-book" pk=type.pk %}'> Удалить </a> {% endif%}</td>
+                <a href='{% url "catalog:update-book" pk=book.pk %}'> Обновить информацию </a>
+                <a href='{% url "catalog:delete-book" pk=book.pk %}'> Удалить </a> {% endif%}</td>
                 
         </tr>
         {% endfor %}

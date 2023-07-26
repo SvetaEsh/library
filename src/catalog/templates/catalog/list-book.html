@@ -10,7 +10,7 @@
         {% for obj in object_list %}
         <tr>
             <td> {{obj.pk}}</td>
-            <td> {{obj.name}}</td>
+            <td> <a href="{{ obj.get_absolute_url }}">{{ obj.name }}</a> </td>
             <td> <a href='{% url "catalog:view-book" pk=obj.pk %}'> Посмотреть информацию об книге</a>   
                 {% if user.is_superuser %} 
                 <a href='{% url "catalog:update-book" pk=obj.pk %}'> Обновить информацию об книге</a>    

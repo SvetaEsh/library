@@ -3,7 +3,7 @@
 {% block BODY %}
     
     <h1> Наименование книги: {{object.name}} </h1>
-    <h2> Фамилии авторов: {{object.author}}</h2>
+    <h2> Фамилии авторов: {% for avthor in object.author.all %} <a href='{% url "catalog:view-author" pk=avthor.pk %}'>{{ avthor}}</a> {% if not forloop.last %}, {% endif %}{% endfor %}</h2>
     <h2> Краткое содержание: {{object.description}}</h2> 
        
      
