@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block TITLE %}Добавить книгу{% endblock TITLE %}
+{% block BODY %} 
+
+
+
+<h1> Добавить новую книгу</h1>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form|crispy}}
+        <button type="submit" class="btn btn-warning">Добавить</button>
+    </form>
+    
+{% endblock BODY %}

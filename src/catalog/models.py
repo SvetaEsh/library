@@ -9,7 +9,7 @@ class Author(models.Model):
     date_of_birth = models.DateField(null=True, blank=True)
     date_of_death = models.DateField('Умер', null = True, blank = True)
     def __str__(self) -> str:
-        return self.name
+        return self.last_name
     def get_absolute_url(self):
         return reverse_lazy('catalog:view-author', kwargs={"pk": self.pk})
 

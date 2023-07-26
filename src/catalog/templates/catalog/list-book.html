@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block TITLE %}Список книг{% endblock TITLE %}
+{% block BODY %}    
+    <table class="table table-bordered">
+        <tr> 
+            <td> № </td>
+            <td> Наименование книги </td>
+            <td> Ссылка на книгу </td>
+        </tr>
+        {% for obj in object_list %}
+        <tr>
+            <td> {{obj.pk}}</td>
+            <td> {{obj.name}}</td>
+            <td> <a href='{% url "catalog:view-book" pk=obj.pk %}'> Посмотреть информацию об книге</a>   
+                {% if user.is_superuser %} 
+                <a href='{% url "catalog:update-book" pk=obj.pk %}'> Обновить информацию об книге</a>    
+                <a href='{% url "catalog:delete-book" pk=obj.pk %}'> Удалить книгу </a> {% endif %}</td>
+                
+        </tr>
+        {% endfor %}
+    </table>
+    
+{% endblock BODY %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block TITLE %}Удалить книгу{% endblock TITLE %}
+{% block BODY %}
+{% if perms.delete_book %} 
+    <h1> {{greeting}} {{object.name}} ? </h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        
+    <button type="submit" class="btn btn-danger">Удалить</button>
+    </form>
+{% endif %}   
+{% endblock BODY %}

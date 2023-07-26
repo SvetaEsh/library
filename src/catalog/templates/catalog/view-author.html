@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block TITLE %}Автор{% endblock TITLE %}
+{% block BODY %}
+    
+    <h1> Имя автора: {{object.first_name}} </h1>
+    <h1> Фамилия автора: {{object.last_name}}</h1>
+    <h2> Дата рождения автора: {{object.date_of_birth}}</h2> 
+    <h2> Дата смерти автора: {{object.date_of_death}}</h2>   
+    <table class="table table-bordered">
+        <tr> 
+            <td> Фамилия автора </td>
+            <td> Действие </td>
+        </tr>
+        {% for book in object.author_rn.all %}
+        <tr>
+            
+            <td> {{book.name}}</td>
+
+            <td> <a href='{% url "catalog:view-book" pk=type.pk %}'> Просмотреть </a>
+                {% if user.is_superuser %}
+                <a href='{% url "catalog:update-book" pk=type.pk %}'> Обновить информацию </a>
+                <a href='{% url "catalog:delete-book" pk=type.pk %}'> Удалить </a> {% endif%}</td>
+                
+        </tr>
+        {% endfor %}
+    </table>    
+{% endblock BODY %}

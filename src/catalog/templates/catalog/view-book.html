@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block TITLE %}Книга{% endblock TITLE %}
+{% block BODY %}
+    
+    <h1> Наименование книги: {{object.name}} </h1>
+    <h2> Фамилии авторов: {{object.author}}</h2>
+    <h2> Краткое содержание: {{object.description}}</h2> 
+       
+     
+{% endblock BODY %}

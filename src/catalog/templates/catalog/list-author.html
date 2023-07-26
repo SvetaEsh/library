@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block TITLE %}Список авторов{% endblock TITLE %}
+{% block BODY %}    
+    <table class="table table-bordered">
+        <tr> 
+            <td> № </td>
+            <td> Фамилия автора </td>
+            <td> Ссылка на автора </td>
+        </tr>
+        {% for obj in object_list %}
+        <tr>
+            <td> {{obj.pk}}</td>
+            <td> {{obj.last_name}}</td>
+            <td> <a href='{% url "catalog:view-author" pk=obj.pk %}'> Посмотреть информацию об авторе</a>   
+                {% if user.is_superuser %} 
+                <a href='{% url "catalog:update-author" pk=obj.pk %}'> Обновить информацию об авторе</a>    
+                <a href='{% url "catalog:delete-author" pk=obj.pk %}'> Удалить автора </a> {% endif %}</td>
+                
+        </tr>
+        {% endfor %}
+    </table>
+    
+{% endblock BODY %}
