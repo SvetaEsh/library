@@ -4,11 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Библиотека книг</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    {% block title %}<title>Библиотека книг</title>{% endblock %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-    {% block BODY %}
+    
+       
+    <div class="container-fluid">
+
+        <div class="row">
+          <h1>Приветствуем в Библиотеке, разработанной для принятия участия в проекте  IT Bootcamp  </h1>
+          <div class="col-sm-2">
+          {% block sidebar %}
+          <ul class="sidebar-nav">
+              
+              <li><a href="{% url 'catalog:book' %}">Список книг</a></li>
+              <li><a href="{% url 'catalog:author' %}">Список авторов</a></li>
+          </ul>
+         {% endblock sidebar%}
+          </div>
+          <div class="col-sm-10 ">
+            {% block BODY %}{% endblock BODY %}
+          </div>
+        </div>
+    
+      </div>
         
-    {% endblock BODY %}    
 </body>
 </html>
