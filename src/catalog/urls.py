@@ -1,7 +1,15 @@
 from django.urls import path
 from . import views
+from rest_framework import routers
+from . import apiviews
 
+
+router = routers.SimpleRouter()
+router.register(r'api-author', apiviews.AuthorViewSet)
+router.register(r'api-book', apiviews.BookViewSet)
 app_name='catalog'
+
+# Standart path urls for view
 urlpatterns = [
     path('author/', views.AuthorListView.as_view(), name="author"),
     path('author/<int:pk>', views.AuthorView.as_view(), name="view-author"),
@@ -15,3 +23,6 @@ urlpatterns = [
     path('book-add/', views.BookCreateView.as_view(), name="create-book"),
     path('book-update/<int:pk>', views.BookUpdateView.as_view(), name="update-book")
 ]
+
+# Only for apiview
+urlpatterns += router.urls
