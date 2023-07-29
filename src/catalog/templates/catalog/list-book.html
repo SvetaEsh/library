@@ -11,10 +11,9 @@
         <tr>
             <td> {{obj.pk}}</td>
             <td> <a href="{{ obj.get_absolute_url }}">{{ obj.name }}</a> </td>
-            <td> <a href='{% url "catalog:view-book" pk=obj.pk %}'> Посмотреть информацию об книге</a>   
-                {% if user.is_superuser %} 
+            <td> <a href='{% url "catalog:view-book" pk=obj.pk %}'> Посмотреть информацию об книге</a>                 
                 <a href='{% url "catalog:update-book" pk=obj.pk %}'> Обновить информацию об книге</a>    
-                <a href='{% url "catalog:delete-book" pk=obj.pk %}'> Удалить книгу </a> {% endif %}</td>
+                <a href='{% url "catalog:delete-book" pk=obj.pk %}'> Удалить книгу </a> </td>
                 
         </tr>
         {% endfor %}

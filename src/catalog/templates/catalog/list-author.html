@@ -12,9 +12,8 @@
             <td> {{obj.pk}}</td>
             <td> {{obj.last_name}}</td>
             <td> <a href='{% url "catalog:view-author" pk=obj.pk %}'> Посмотреть информацию об авторе</a>   
-                {% if user.is_superuser %} 
                 <a href='{% url "catalog:update-author" pk=obj.pk %}'> Обновить информацию об авторе</a>    
-                <a href='{% url "catalog:delete-author" pk=obj.pk %}'> Удалить автора </a> {% endif %}</td>
+                <a href='{% url "catalog:delete-author" pk=obj.pk %}'> Удалить автора </a> </td>
                 
         </tr>
         {% endfor %}

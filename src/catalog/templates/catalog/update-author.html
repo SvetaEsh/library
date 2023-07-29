@@ -2,12 +2,12 @@
 {% load crispy_forms_tags %}
 {% block TITLE %}Изменить информацию об авторе?{% endblock TITLE %}
 {% block BODY %}
-{% if perms.update_author %} 
+
     <h1> {{greeting}} </h1>
     <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{form|crispy}}
         <button type="submit" class="btn btn-success">Изменить</button>
     </form>
-{% endif %}
+
 {% endblock BODY %}

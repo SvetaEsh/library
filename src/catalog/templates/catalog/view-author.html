@@ -16,10 +16,9 @@
             
             <td> {{book.name}}</td>
 
-            <td> <a href='{% url "catalog:view-book" pk=book.pk %}'> Просмотреть </a>
-                {% if user.is_superuser %}
+            <td> <a href='{% url "catalog:view-book" pk=book.pk %}'> Просмотреть </a>                
                 <a href='{% url "catalog:update-book" pk=book.pk %}'> Обновить информацию </a>
-                <a href='{% url "catalog:delete-book" pk=book.pk %}'> Удалить </a> {% endif%}</td>
+                <a href='{% url "catalog:delete-book" pk=book.pk %}'> Удалить </a> </td>
                 
         </tr>
         {% endfor %}
