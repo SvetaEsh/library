@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block TITLE %}Главная{% endblock TITLE %}
+{% block BODY %}    
+<h1>Приветствуем в Библиотеке, разработанной для принятия участия в проекте  IT Bootcamp  </h1>    
+<h2><p>Библиотека:</p></h2>
+  <ul>
+    <li><strong><a href="{% url 'catalog:book' %}">Книги:</a></strong> {{ books }}</li>
+    <li><strong><a href="{% url 'catalog:author' %}">Авторы:</a></strong> {{ authors }}</li>
+  </ul>    
+{% endblock BODY %}

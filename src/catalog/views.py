@@ -79,3 +79,12 @@ class BookUpdateView(generic.UpdateView):
         context["greeting"]= "Что хотите изменить?"
         return context
     
+
+def home(request):
+    books_count=models.Book.objects.all().count()    
+    authors_count=models.Author.objects.all().count() 
+    return render(
+        request,
+        'catalog\home.html',
+        context={'books':books_count, 'authors':authors_count},
+    )
