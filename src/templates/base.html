@@ -16,11 +16,11 @@
     <div class="container-fluid">
 
         <div class="row">
-          <h1>Приветствуем в Библиотеке, разработанной для принятия участия в проекте  IT Bootcamp  </h1>
+          
           <div class="col-sm-2">
           {% block sidebar %}
           <ul class="sidebar-nav">
-              
+              <li><a href="{% url 'home' %}">Главная</a></li>
               <li><a href="{% url 'catalog:book' %}">Список книг</a></li>
               <li><a href="{% url 'catalog:author' %}">Список авторов</a></li>
           </ul>

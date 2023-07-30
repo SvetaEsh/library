@@ -5,18 +5,18 @@
         <tr> 
             <td> № </td>
             <td> Фамилия автора </td>
-            <td> Ссылка на автора </td>
+            <td> Обновить информацию об авторе </td>
+            <td> Удалить автора </td>
         </tr>
         {% for obj in object_list %}
         <tr>
             <td> {{obj.pk}}</td>
-            <td> {{obj.last_name}}</td>
-            <td> <a href='{% url "catalog:view-author" pk=obj.pk %}'> Посмотреть информацию об авторе</a>   
-                <a href='{% url "catalog:update-author" pk=obj.pk %}'> Обновить информацию об авторе</a>    
-                <a href='{% url "catalog:delete-author" pk=obj.pk %}'> Удалить автора </a> </td>
+            <td> <a href="{{ obj.get_absolute_url }}">{{obj.last_name}}</a></td>
+            <td> <a href='{% url "catalog:update-author" pk=obj.pk %}'> Обновить информацию об авторе</a></td>   
+            <td> <a href='{% url "catalog:delete-author" pk=obj.pk %}'> Удалить автора </a> </td>
                 
         </tr>
         {% endfor %}
     </table>
-    
+    <h4><strong><a href='{% url "catalog:create-author" %}'> Добавить автора </a></strong></h4>
 {% endblock BODY %}
